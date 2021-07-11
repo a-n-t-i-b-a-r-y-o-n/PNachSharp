@@ -1,0 +1,45 @@
+﻿<Application x:Class="PNachSharp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PNachSharp"
+             xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- FluentWPF Controls for M$ "Fluent Design" acrylic on the window & buttons -->
+                <ResourceDictionary Source="pack://application:,,,/FluentWPF;component/Styles/Controls.xaml" />
+                <!-- Fluent UI tab control -->
+                <ResourceDictionary Source="FluentTabView.xaml" />
+                <ResourceDictionary>
+                    <!-- Fixes TextBox style to match theme -->
+                    <Style x:Key="FluentTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxRevealStyle}" >
+                        <Setter Property="Foreground"
+                                Value="{DynamicResource SystemBaseHighColorBrush}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background"
+                                        Value="{fw:AcrylicBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background"
+                                        Value="{fw:AcrylicBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter Property="Background"
+                                        Value="{fw:AcrylicBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                <Setter Property="Background"
+                                        Value="{DynamicResource SystemChromeLowColorBrush}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style x:Key="FluentTabControlStyle" TargetType="TabControl">
+                        
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
