@@ -1,0 +1,33 @@
+﻿<ui:Page x:Class="PNachSharp.EncodedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PNachSharp"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="EncodedPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*" />
+            <ColumnDefinition Width="0.3*" />
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Column="0" />
+        <StackPanel Grid.Column="1" Margin="8,0,0,0">
+            <RadioButton>ActionReplay v1</RadioButton>
+            <RadioButton>ActionReplay v2</RadioButton>
+            <RadioButton>ActionReplay MAX</RadioButton>
+            <RadioButton>CodeBreaker V1+</RadioButton>
+            <RadioButton>CodeBreaker V7</RadioButton>
+            <RadioButton>GameShark V1</RadioButton>
+            <RadioButton>GameShark V2</RadioButton>
+            <RadioButton>GameShark V3+</RadioButton>
+            <RadioButton>GameShark V5+</RadioButton>
+            <RadioButton>Swap Magic</RadioButton>
+            <RadioButton>Xploder V1-3</RadioButton>
+            <RadioButton>Xploder V4</RadioButton>
+            <RadioButton>Xploder V5</RadioButton>
+        </StackPanel>
+    </Grid>
+</ui:Page>

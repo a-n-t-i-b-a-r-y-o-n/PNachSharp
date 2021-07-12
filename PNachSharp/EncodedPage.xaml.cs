@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +16,11 @@ using System.Windows.Shapes;
 namespace PNachSharp
 {
     /// <summary>
-    /// Code behind MainWindow
+    /// Interaction logic for EncodedPage.xaml
     /// </summary>
-    public partial class MainWindow: Window
+    public partial class EncodedPage
     {
-        public MainWindow()
+        public EncodedPage()
         {
             InitializeComponent();
         }

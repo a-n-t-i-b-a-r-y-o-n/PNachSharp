@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
              xmlns:local="clr-namespace:PNachSharp"
-             xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
-             xmlns:fr="urn:fluent-ribbon"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -15,33 +14,14 @@
                     <RowDefinition Height="0.1*" />
                     <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <!-- Synchronize button -->
-                <Button Grid.Row="0" Grid.Column="0"
-                        Style="{StaticResource ButtonRevealStyle}"
-                        Margin="2">
-                    Sync
-                </Button>
-                <!-- Copy button -->
-                <Button Grid.Row="0" Grid.Column="1"
-                        Style="{StaticResource ButtonRevealStyle}"
-                        Margin="2">
-                    Copy
-                </Button>
-                <!-- Save button -->
-                <Button Grid.Row="0" Grid.Column="2"
-                        Style="{StaticResource ButtonRevealStyle}"
-                        Margin="2">
-                    Save
-                </Button>
+                <ui:CommandBar FlowDirection="RightToLeft">
+                    <ui:AppBarButton Icon="59214" Label="Save" />
+                    <ui:AppBarButton Icon="61667" Label="Copy" />
+                    <ui:AppBarButton Icon="59541" Label="Sync" />
+                </ui:CommandBar>
+                
                 <!-- Output PNach code text box -->
-                <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
-                         Style="{StaticResource FluentTextBoxStyle}"
-                         Margin="2" />
+                <TextBox Grid.Row="1" Grid.ColumnSpan="3" Margin="2" />
             </Grid>
         </GroupBox>
     </Grid>

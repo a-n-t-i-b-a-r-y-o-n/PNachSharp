@@ -2,13 +2,13 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net5.0-windows</TargetFramework>
+        <TargetFramework>net5.0-windows10.0.18362.0</TargetFramework>
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentWPF" Version="0.10.0-alpha001" />
-      <PackageReference Include="MaterialDesignExtensions" Version="4.0.0-a02" />
+      <PackageReference Include="ModernWpfUI" Version="0.9.4" />
     </ItemGroup>
+
 
 </Project>

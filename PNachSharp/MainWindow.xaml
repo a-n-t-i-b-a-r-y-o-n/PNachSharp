@@ -1,29 +1,26 @@
-﻿<fw:AcrylicWindow x:Class="PNachSharp.MainWindow"
+﻿<Window x:Class="PNachSharp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PNachSharp"
-        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800"
-        NoiseOpacity="0"
-        Background="{DynamicResource SystemAltHighColorBrush}">
-    <Grid Margin="8px" fw:PointerTracker.Enabled="True" Background="{DynamicResource SystemAltHighColorBrush}" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*" />
-            <RowDefinition Height="0.9*" />
-            <RowDefinition Height="0.05*" />
-        </Grid.RowDefinitions>
+        Title="PNach#" Height="800" Width="1000"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        Background="{DynamicResource SystemControlPageBackgroundAltHighBrush}"
+        Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}"
+        ui:ThemeManager.IsThemeAware="True">
+    <Grid Margin="8px" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="0.6*" />
+            <ColumnDefinition Width="0.4*"/>
         </Grid.ColumnDefinitions>
-        <local:LeftPane Grid.Row="1" Grid.Column="0" Margin="0,0,4,0" />
-        <GridSplitter Grid.Row="1" Grid.Column="0" Width="4" Background="Transparent"
+        <local:LeftPane Grid.Row="0" Grid.Column="0" Margin="0,0,4,0" />
+        <GridSplitter Grid.Row="0" Grid.Column="0" Width="4" Background="Transparent"
                       ResizeDirection="Columns" 
                       VerticalAlignment="Stretch" 
                       HorizontalAlignment="Right" />
-        <local:RightPane Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" />
+        <local:RightPane Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" />
     </Grid>
-</fw:AcrylicWindow>
+</Window>
