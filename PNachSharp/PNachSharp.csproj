@@ -10,5 +10,11 @@
       <PackageReference Include="ModernWpfUI" Version="0.9.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="ffi.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 
 </Project>

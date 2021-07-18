@@ -1,0 +1,11 @@
+[package]
+name = "ffi"
+version = "0.0.1"
+edition = "2018"
+authors = ["a-n-t-i-b-a-r-y-o-n"]
+
+[dependencies]
+libc = "0.2"
+
+[lib]
+crate-type = ["cdylib"]
