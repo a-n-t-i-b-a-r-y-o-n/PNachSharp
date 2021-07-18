@@ -47,5 +47,15 @@ namespace PNachSharp
                 
             }
         }
+
+        private void GameTitleBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            ((MainWindow) ((Grid) Parent).Parent).CurrentFile.Title = ((TextBox) sender).Text;
+        }
+
+        private void GameCRCBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            ((MainWindow) ((Grid) Parent).Parent).CurrentFile.CRC = ((TextBox) sender).Text;
+        }
     }
 }

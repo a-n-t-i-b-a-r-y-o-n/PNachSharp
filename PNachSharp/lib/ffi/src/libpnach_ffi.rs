@@ -4,6 +4,7 @@ use libpnach::pnach_file;
 
 use libc::c_char;
 use std::ffi::{CStr, CString};
+use libpnach::pnach_file::PNachFile;
 
 /// PNachFile factory
 #[no_mangle]
@@ -33,8 +34,32 @@ pub extern "C" fn PNachFile_Free(pnachfile_ptr: *mut pnach_file::PNachFile) {
     }
 }
 
-/// Get Title
+/// PNachFile.to_string() formatter
 #[no_mangle]
 pub extern "C" fn PNachFile_ToString(pnachfile_ptr: *mut pnach_file::PNachFile) -> *mut c_char {
     unsafe { CString::new(String::from(&(*pnachfile_ptr).to_string())).unwrap().into_raw() }
+}
+
+/// Title accessor
+#[no_mangle]
+pub extern "C" fn PNachFile_GetTitle(pnachfile_ptr: *mut pnach_file::PNachFile) -> *mut c_char {
+    unsafe { CString::new(String::from(&(*pnachfile_ptr).game_title.to_string())).unwrap().into_raw() }
+}
+
+/// Title mutator
+#[no_mangle]
+pub extern "C" fn PNachFile_SetTitle(pnachfile_ptr: *mut pnach_file::PNachFile, title: *const c_char) {
+    unsafe { (*pnachfile_ptr).game_title = String::from(CStr::from_ptr(title).to_str().unwrap()); }
+}
+
+/// CRC accessor
+#[no_mangle]
+pub extern "C" fn PNachFile_GetCRC(pnachfile_ptr: *mut pnach_file::PNachFile) -> *mut c_char {
+    unsafe { CString::new(String::from(&(*pnachfile_ptr).game_crc.to_string())).unwrap().into_raw() }
+}
+
+/// CRC mutator
+#[no_mangle]
+pub extern "C" fn PNachFile_SetCRC(pnachfile_ptr: *mut pnach_file::PNachFile, crc: *const c_char) {
+    unsafe { (*pnachfile_ptr).game_crc = String::from(CStr::from_ptr(crc).to_str().unwrap()); }
 }

@@ -14,10 +14,11 @@
                     <RowDefinition Height="0.1*" />
                     <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
-                <ui:CommandBar FlowDirection="RightToLeft">
-                    <ui:AppBarButton Icon="59214" Label="Save" />
+                <ui:CommandBar >
+                    <ui:AppBarButton x:Name="RefreshButton" Icon="59541" Label="Sync" Click="RefreshButton_OnClick" />
                     <ui:AppBarButton x:Name="CopyButton" Icon="61667" Label="Copy" Click="CopyButton_OnClick" />
-                    <ui:AppBarButton Icon="59541" Label="Sync" />
+                    <ui:AppBarButton x:Name="ExportButton" Icon="59214" Label="Export" />
+                    <ui:AppBarButton x:Name="OpenButton" Icon="59621" Label="Open" />
                 </ui:CommandBar>
                 
                 <!-- Output PNach code text box -->

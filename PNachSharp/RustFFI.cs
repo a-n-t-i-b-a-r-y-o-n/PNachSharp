@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PNachSharp
 {
@@ -15,16 +12,14 @@ namespace PNachSharp
             [DllImport("ffi.dll", EntryPoint = "RustString_Free")]
             private static extern void RustString_Free(IntPtr handle);
 
-            // Generic constructor, set Invalid Value to IntPtr.Zero
+            // Generic no-arg constructor, set Invalid Value to IntPtr.Zero
             public RustStringHandle() : base(IntPtr.Zero, true) {}
-
+            // Give Rust ownership to free the memory
             protected override bool ReleaseHandle()
             {
+                // Give ownership back to Rust to free the memory if it's valid
                 if (!IsInvalid)
-                {
                     RustString_Free(handle);
-                }
-
                 return true;
             }
 
@@ -35,10 +30,13 @@ namespace PNachSharp
                 // Calculate input length
                 int length = 0;
                 while (Marshal.ReadByte(handle, length) != 0) { ++length; }
+
                 // Create buffer of calculated length
                 byte[] buffer = new byte[length];
+
                 // Copy data into buffer up until *buffer* length
                 Marshal.Copy(handle, buffer, 0, buffer.Length);
+
                 // Return UTF-8 string from buffer
                 return Encoding.UTF8.GetString(buffer);
             }
@@ -53,13 +51,16 @@ namespace PNachSharp
             // Internal SafeHandle
             private readonly RustStringHandle _handle;
 
+            // Create new object to wrap internal handle
             RustString(string input)
             {
                 _handle = RustString_New(input);
             }
 
+            // Free the RustString resource
             public void Dispose() => _handle.Dispose();
 
+            // Read the handle string value
             public override string ToString() => _handle.ToString();
         }
 
