@@ -30,7 +30,7 @@ namespace PNachSharp
         public ICodePage.PageType GetPageType() => ICodePage.PageType.Encoded;
         public string GetRawCode()
         {
-            // TODO: Implementation decoding/decryption with Omniconvert port
+            // TODO: Implement decoding/decryption with Omniconvert port
             Trace.WriteLine("[DECRYPTION NOT YET IMPLEMENTED]");
             return string.Empty;
         }

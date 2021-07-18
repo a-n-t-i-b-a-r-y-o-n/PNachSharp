@@ -11,3 +11,10 @@ You can use this program to create PCSX2-compatible cheat files from random code
 ### Another PNach utility?
 Sort of. This is essentially just a C# + WPF wrapper around my Rust libraries.  
 It does everything PNach-rs does, only in a Windows-native way.
+
+### Screenshots
+
+This app uses the [Modern WPF UI Library](https://github.com/Kinnara/ModernWpf) to enable a WinRT/UWP "Fluent" design that matches Windows 10 and synchronizes with the selected OS app and accent colors:  
+
+![Light OS Theme](Screenshots/Screenshot1_light.png)
+![Dark OS Theme](Screenshots/Screenshot1_dark.png)
