@@ -6,6 +6,7 @@ authors = ["a-n-t-i-b-a-r-y-o-n"]
 
 [dependencies]
 libc = "0.2"
+libpnach = { path = "../libpnach" }
 
 [lib]
 crate-type = ["cdylib"]

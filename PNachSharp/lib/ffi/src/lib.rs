@@ -1,7 +1,14 @@
+mod libpnach_ffi;
+
+use libpnach::*;
 extern crate libc;
 
+use libc::c_char;
 use libc::size_t;
+use std::ffi::CStr;
 use std::slice;
+
+
 
 #[no_mangle]
 pub extern "C" fn sum_of_even(n: *const u32, len: size_t) -> u32 {
