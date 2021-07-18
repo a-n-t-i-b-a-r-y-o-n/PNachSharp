@@ -7,6 +7,11 @@
              xmlns:local="clr-namespace:PNachSharp"
              mc:Ignorable="d"
              d:DesignHeight="800" d:DesignWidth="400">
+    <UserControl.Resources>
+        <DataTemplate x:Key="NavMenuItemTemplate">
+            <ui:NavigationViewItem Icon="59331"  />
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid x:Name="BaseGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*" MinHeight="150" />
@@ -46,37 +51,18 @@
                     IsPaneVisible="True"
                     ItemInvoked="NavView_ItemInvoked"
                     IsSettingsVisible="False"
+                    MenuItemTemplate="{StaticResource NavMenuItemTemplate}"
                     >
                     <ui:NavigationView.MenuItems>
                         <ui:NavigationViewItem Icon="59331" Content="Raw Code" Tag="{x:Type local:RawPage}" />
                         <ui:NavigationViewItem Icon="59182" Content="Encrypted/Encoded" Tag="{x:Type local:EncodedPage}" />
+                        <ui:NavigationViewItem Icon="59331" Content="Raw Code" Tag="{x:Type local:RawPage}" />
                     </ui:NavigationView.MenuItems>
                     <ui:NavigationView.FooterMenuItems>
-                        <ui:NavigationViewItem Icon="59152" Tag="ADD" />
+                        <ui:NavigationViewItem x:Name="AddNavItemButton" Icon="59152" Content="Add Code..." Tag="ADD" />
                     </ui:NavigationView.FooterMenuItems>
                     <ui:Frame x:Name="ContentFrame" />
                 </ui:NavigationView>
-                <!--
-                <TabControl>
-                    <TabItem Header="Tab 1">
-                        <TextBox>Hello!</TextBox>
-                    </TabItem>
-                    <TabItem Header="Tab 2">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.8*" />
-                                <ColumnDefinition Width="0.2*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0">Codigos...</TextBox>
-                            <StackPanel Grid.Column="1">
-                                <RadioButton>A</RadioButton>
-                                <RadioButton>B</RadioButton>
-                                <RadioButton>C</RadioButton>
-                            </StackPanel>
-                        </Grid>
-                    </TabItem>
-                </TabControl>
-                -->
             </Grid>
         </GroupBox>
     </Grid>

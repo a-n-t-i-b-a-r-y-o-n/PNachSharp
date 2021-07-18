@@ -18,11 +18,15 @@ namespace PNachSharp
     /// <summary>
     /// Interaction logic for RawPage.xaml
     /// </summary>
-    public partial class RawPage
+    public partial class RawPage : ICodePage
     {
         public RawPage()
         {
             InitializeComponent();
         }
+
+        public ICodePage.PageType GetPageType() => ICodePage.PageType.Raw;
+
+        public string GetRawCode() => InputBox.Text.Trim();
     }
 }

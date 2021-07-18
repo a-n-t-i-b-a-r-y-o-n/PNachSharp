@@ -13,27 +13,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Page = ModernWpf.Controls.Page;
 
 namespace PNachSharp
 {
     /// <summary>
-    /// Interaction logic for EncodedPage.xaml
+    /// Interaction logic for AddCodePage.xaml
     /// </summary>
-    public partial class EncodedPage : ICodePage
+    public partial class AddCodePage
     {
-        public EncodedPage()
+        public AddCodePage()
         {
             InitializeComponent();
         }
 
-        public ICodePage.PageType GetPageType() => ICodePage.PageType.Encoded;
-        public string GetRawCode()
+        private void AddRawButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // TODO: Implementation decoding/decryption with Omniconvert port
-            Trace.WriteLine("[DECRYPTION NOT YET IMPLEMENTED]");
-            return string.Empty;
+            Trace.WriteLine(((Grid)((ContentPresenter)VisualParent).Parent).Name);
         }
-
     }
 }

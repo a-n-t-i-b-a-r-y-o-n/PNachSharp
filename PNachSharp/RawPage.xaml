@@ -10,6 +10,6 @@
       Title="RawPage">
 
     <Grid>
-        <TextBlock>Suhhhh</TextBlock>
+        <TextBox x:Name="InputBox" />
     </Grid>
 </ui:Page>

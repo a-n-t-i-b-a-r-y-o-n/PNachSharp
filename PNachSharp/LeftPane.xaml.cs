@@ -1,19 +1,28 @@
 ﻿using ModernWpf.Controls;
+using ModernWpf.Controls.Primitives;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace PNachSharp
 {
     public partial class LeftPane : UserControl
     {
+        public ObservableCollection<ICodePage> CodePages = new ObservableCollection<ICodePage>();
+
         public LeftPane()
         {
             InitializeComponent();
 
+            NavView.MenuItemsSource = CodePages;
+
             // Navigate the view to the first item in the list
-            NavView.SelectedItem = NavView.MenuItems.OfType<NavigationViewItem>().First();
-            NavigateFrame(NavView.SelectedItem);
+            //NavView.SelectedItem = NavView.MenuItems.OfType<NavigationViewItem>().First();
+            //NavigateFrame(NavView.SelectedItem);
         }
 
         private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
@@ -24,6 +33,7 @@ namespace PNachSharp
             }
             else
             {
+                Trace.WriteLine($"index: {sender.MenuItems.IndexOf(sender.SelectedItem)}\r\ntitle: {args.InvokedItem}\r\n\r\n");
                 NavigateFrame(args.InvokedItemContainer);
             }
         }
@@ -34,7 +44,7 @@ namespace PNachSharp
             {
                 if(menuItem.Tag.ToString() == "ADD")
                 {
-                    // Prompt the user to add a new tab
+                    ContentFrame.Navigate(typeof(AddCodePage));
                 }
                 else
                 {
